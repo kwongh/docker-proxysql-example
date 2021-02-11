@@ -48,48 +48,6 @@ services:
     networks:
       - frontend
       - backend
-  orc1:
-    build: ./conf/orchestrator/
-    ports:
-      - "23101:3000"
-    volumes:
-      - ./conf/orchestrator/orc1/orchestrator.conf.json:/etc/orchestrator.conf.json
-      - ./conf/orchestrator/remove-proxysql-host.bash:/root/remove-proxysql-host.bash
-    depends_on:
-      - mysql1
-      - mysql2
-      - mysql3
-      - proxysql
-    networks:
-      - backend
-  orc2:
-    build: ./conf/orchestrator/
-    ports:
-      - "23102:3000"
-    volumes:
-      - ./conf/orchestrator/orc2/orchestrator.conf.json:/etc/orchestrator.conf.json
-      - ./conf/orchestrator/remove-proxysql-host.bash:/root/remove-proxysql-host.bash
-    depends_on:
-      - mysql1
-      - mysql2
-      - mysql3
-      - proxysql
-    networks:
-      - backend
-  orc3:
-    build: ./conf/orchestrator/
-    ports:
-      - "23103:3000"
-    volumes:
-      - ./conf/orchestrator/orc3/orchestrator.conf.json:/etc/orchestrator.conf.json
-      - ./conf/orchestrator/remove-proxysql-host.bash:/root/remove-proxysql-host.bash
-    depends_on:
-      - mysql1
-      - mysql2
-      - mysql3
-      - proxysql
-    networks:
-      - backend
 networks:
   frontend:
   backend:
